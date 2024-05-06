@@ -29,11 +29,21 @@ connection.once("open", () => {
 
 
 const harvestAndinventoryRouter = require("./routes/harvestAndinventory.js");
+const maintenanceRouter = require("./routes/maintenance.js");
+const repairRouter = require("./routes/repair.js");
+const managerRouter = require("./routes/manager.js");  // Include the manager router
+const technicianRouter = require("./routes/technician.js");
 
 
 
 
 app.use("/harvestAndinventory",harvestAndinventoryRouter );
+
+
+app.use("/maintenance", maintenanceRouter);
+app.use("/repair", repairRouter);
+app.use("/manager", managerRouter);  // Mount the manager router
+app.use("/technician", technicianRouter);
 
 
 app.listen(PORT, () => {
